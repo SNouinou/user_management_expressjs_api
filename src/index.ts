@@ -13,7 +13,7 @@ const listen = app.listen(config.get('port'),()=>{
 })
 
 
-
-module.exports = app;
 const { port } = listen!.address() as AddressInfo;
-module.exports.port = port;
+
+export default app;
+export {port};

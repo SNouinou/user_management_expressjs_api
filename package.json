@@ -7,8 +7,8 @@
     "serve": "set \"NODE_ENV=production\" && node dist/index.js",
     "start": "set \"NODE_ENV=development\" && ts-node src/index.ts",
     "dev": "set \"DEBUG=server:debug\" && set \"NODE_ENV=development\" && nodemon src/index.ts --exec ts-node",
-    "test": "set \"DEBUG=server:debug\" && set \"NODE_ENV=test\" && mocha --require babel-core/register --reporter spec --exit   tests/ --exec ts-node",
-    "test:watch": "set \"DEBUG=server:debug\" && set \"NODE_ENV=development\" && mocha  --require babel-core/register --watch --reporter  spec   tests/ --exec ts-node",
+    "test": "set \"DEBUG=server:debug\" && set \"NODE_ENV=test\" && mocha --require ts-node/register --reporter spec --exit   tests/*.ts --exec ts-node",
+    "test:watch": "set \"DEBUG=server:debug\" && set \"NODE_ENV=development\" && mocha  --require ts-node/register --watch --reporter  spec   tests/ --exec ts-node",
     "eslint": "eslint src/**/*.ts --ignore-pattern \"node_modules/\""
   },
   "eslintConfig": {
@@ -45,9 +45,12 @@
     "mongoose": "^6.2.2"
   },
   "devDependencies": {
-    "@types/config": "0.0.41",
+    "@types/chai": "^4.3.0",
+    "@types/config": "^0.0.41",
     "@types/debug": "^4.1.7",
     "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.0",
+    "@types/supertest": "^2.0.11",
     "babel-preset-node8": "^1.2.0",
     "chai": "^4.3.6",
     "config": "^3.3.7",
