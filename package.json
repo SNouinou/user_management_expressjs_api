@@ -41,8 +41,11 @@
     "node": ">=8"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "express": "^4.17.3",
-    "mongoose": "^6.2.2"
+    "mongoose": "^6.2.2",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.6.0"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
