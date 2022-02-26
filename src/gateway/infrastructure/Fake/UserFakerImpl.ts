@@ -33,7 +33,7 @@ export class UserFakerImpl implements UserFaker {
                     faker.internet.userName(firstName,lastName),
                     faker.internet.email(firstName,lastName),
                     faker.internet.password(),
-                    Object.values(Role)[Math.round(Math.random()*(Object.values(Role).length)-1)]
+                    Object.values(Role)[faker.datatype.number(1)]
                 )
             );
         }

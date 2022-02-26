@@ -1,14 +1,15 @@
 import server from '../src/index';
 import  request  from 'supertest';
 import {expect} from 'chai';
-
+import faker from '@faker-js/faker';
 
 describe('Users Test',()=>{
     it('GET /api/users/generate returns an json of users',async()=>{
-        const count = 20;
-        const response= await request(server).get('/api/users/generate/').send({count});
-        expect(response.status).to.equal(200)
-        expect(response.headers).to.include({'Content-Type': 'application/json'});
-        expect(response.headers).to.include({'Content-Length': count});
+        const count = faker.datatype.number(100);
+        const response = await request(server).get('/api/users/generate/').query({count});
+        expect(response.status).to.equal(200);
+        expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
+        expect(response.headers).to.include({'content-disposition': 'attachment; filename=users_list.json'});
+        expect(response.body.length).to.equal(count);
     })
 })
