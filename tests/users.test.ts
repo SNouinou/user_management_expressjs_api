@@ -12,4 +12,14 @@ describe('Users Test',()=>{
         expect(response.headers).to.include({'content-disposition': 'attachment; filename=users_list.json'});
         expect(response.body.length).to.equal(count);
     })
+
+    it('POST /api/users/batch load users from json file',async()=>{
+
+        const response = await request(server).post('/api/users/batch/')
+            .type('multipart/form-data')
+            .attach('file', `${__dirname}/resources/users_list.json`);
+        expect(response.status).to.equal(200);
+        //expect(response.body.length).to.equal(count);
+    })
 })
+
