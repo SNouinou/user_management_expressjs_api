@@ -7,6 +7,8 @@ import loadDependencies from "./dependencies";
 import {UserRoute} from "./gateway/exposition/UserRoute";
 import fileUpload from "express-fileupload";
 
+require('dotenv-flow').config();
+
 loadDependencies();
 
 const debug = Debug('server:debug')

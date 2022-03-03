@@ -19,7 +19,8 @@ describe('Users Test',()=>{
             .type('multipart/form-data')
             .attach('file', `${__dirname}/resources/users_list.json`);
         expect(response.status).to.equal(200);
-        //expect(response.body.length).to.equal(count);
+        expect(response.body.success).to.equal(5);
+        expect(response.body.fail).to.equal(1);
     })
 })
 
