@@ -11,8 +11,8 @@ const UserRoute =express.Router();
 
 UserRoute.get('/generate',async(req,res)=>{
     try {
-        let userfaker:GenerateUsers = container.resolve(GenerateUsers);
-        const usersList = userfaker.handle(req.query as unknown as GenerateUsersInput);
+        let generateUsers:GenerateUsers = container.resolve(GenerateUsers);
+        const usersList = generateUsers.handle(req.query as unknown as GenerateUsersInput);
         res.setHeader('Content-type', 'application/json');
         res.setHeader('Content-disposition', 'attachment; filename=users_list.json');
         res.status(200).send(JSON.stringify(usersList))
