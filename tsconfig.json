@@ -8,6 +8,8 @@
         "strict": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "lib": ["esnext"],
+        "sourceMap": true,
     },
     "exclude": ["./dist","./node_modules"],
     "include": ["src/**/*"]

@@ -405,3 +405,4 @@ package-lock.json
 yarn.lock
 
 api_desc.py
+prisma/memdb1
