@@ -4,7 +4,7 @@ import server, {port} from '../src/index';
 console.log(port)
 
 describe('Server', ()=>{
-    it('tests that server is running current port', async()=>{
+    it('tests that server is running current port', async function () {
         expect(port).to.equal(config.get('port'))
    
     })
