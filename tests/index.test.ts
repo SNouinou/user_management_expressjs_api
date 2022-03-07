@@ -9,11 +9,4 @@ describe('Server', ()=>{
         expect(port).to.equal(config.get('port'))
    
     })
-
-    it('POST /api/auth authentificate and gives access_token',async function () {
-        const response = await request(server).post('/api/users/me')
-            .set('login','Jacky75@hotmail.com')
-            .set('password','password')
-        expect(response.status).to.equal(200);
-    })
 });

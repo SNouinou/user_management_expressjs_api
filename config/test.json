@@ -1,4 +1,6 @@
 {
     "name": "Server Test",
-    "port": 3100
+    "port": 3100,
+    "token_key": "key",
+    "token_expiration": "2h"
 }
