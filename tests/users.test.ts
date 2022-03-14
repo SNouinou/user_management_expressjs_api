@@ -4,6 +4,9 @@ import {expect} from 'chai';
 import faker from '@faker-js/faker';
 
 describe('/api/users/ Route',()=>{
+
+    let accessToken ;
+
     it('GET /api/users/generate returns an json of users',async function (){
         const count = faker.datatype.number(100);
         const response = await request(server).get('/api/users/generate/').query({count});
@@ -24,13 +27,6 @@ describe('/api/users/ Route',()=>{
         expect(response.body.fail).to.equal(1);
     })
 
-    it('POST /api/users/{profile} view user profile',async function () {
-        const response = await request(server).post('/api/users/me')
-            .set('profile','Jacky75@hotmail.com')
-            .set('password','password')
-        expect(response.status).to.equal(200);
-    });
-
     it('POST /api/auth authentificate and gives access_token',async function () {
         const response = await request(server).post('/api/auth')
             .send({
@@ -39,6 +35,17 @@ describe('/api/users/ Route',()=>{
             });
         expect(response.status).to.equal(200);
         expect(response.body['access_token']).to.exist;
+        accessToken = response.body['access_token'];
     })
+
+    it('POST /api/users/{profile} view user profile',async function () {
+        const response = await request(server).post('/api/users/me')
+            .send({
+                'access_token': accessToken,
+            })
+        expect(response.status).to.equal(200);
+    });
+
+
 })
 
