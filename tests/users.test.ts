@@ -40,9 +40,7 @@ describe('/api/users/ Route',()=>{
 
     it('POST /api/users/{profile} view user profile',async function () {
         const response = await request(server).post('/api/users/me')
-            .send({
-                'access_token': accessToken,
-            })
+            .set('access_token', accessToken)
         expect(response.status).to.equal(200);
     });
 
