@@ -5,7 +5,7 @@ import faker from '@faker-js/faker';
 
 describe('/api/users/ Route',()=>{
 
-    let accessToken ;
+    let accessToken: string;
 
     it('GET /api/users/generate returns an json of users',async function (){
         const count = faker.datatype.number(100);
@@ -40,8 +40,10 @@ describe('/api/users/ Route',()=>{
 
     it('POST /api/users/{profile} view user profile',async function () {
         const response = await request(server).post('/api/users/me')
-            .set('access_token', accessToken)
+            .set('access_token', 'Bearer ' + accessToken);
         expect(response.status).to.equal(200);
+        expect(response.body.profile.firstName).to.equal("Jacky");
+        expect(response.body.profile.lastName).to.equal("Kulas");
     });
 
 
