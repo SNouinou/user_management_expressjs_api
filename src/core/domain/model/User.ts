@@ -1,3 +1,4 @@
+import { Profile } from "./Profile";
 import {Role} from "./Role";
 
 export class User {
@@ -16,4 +17,21 @@ export class User {
     public password: string,
     public role: Role
     ) {}
+
+    toProfile(){
+      return new Profile(
+         this.firstName,
+         this.lastName,
+         this.birthDate,
+         this.city,
+         this.country,
+         this.avatar,
+         this.company,
+         this.jobPosition,
+         this.mobile,
+         this.username,
+         this.email,
+         this.role
+      )
+    }
 }
