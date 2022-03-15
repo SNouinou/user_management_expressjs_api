@@ -8,7 +8,7 @@
 - sqlite DB
 - FakerJs
 - Prisma ORM
-- JJWT for JWT authentication
+- JWT authentication
 - chai and supertest for unit test
 
 ### Endpoints
