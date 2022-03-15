@@ -46,7 +46,7 @@ describe('/api/users/ Route',()=>{
         expect(response.body.profile.lastName).to.equal("Kulas");
     });
 
-    it('POST /api/users/{profile} view admin user profile',async function () {
+    it('POST /api/users/{profile} view profile for admin user',async function () {
         const response = await request(server).post('/api/users/Osborne_Cummings81')
             .set('access_token', 'Bearer ' + accessToken);
         expect(response.status).to.equal(200);
@@ -54,14 +54,13 @@ describe('/api/users/ Route',()=>{
         expect(response.body.profile.lastName).to.equal("Cummings");
     });
 
-    it('POST /api/users/{profile} view regular user profile',async function () {
+    it('POST /api/users/{profile} view profile for regular user',async function () {
         let response = await request(server).post('/api/auth')
             .send({
                 'login':'Osborne_Cummings81',
                 'password': 'Xtzgc7SjSLrt_VQ'
             });
         accessToken = response.body['access_token'];
-
 
         response = await request(server).post('/api/users/Jacky.Kulas8')
             .set('access_token', 'Bearer ' + accessToken);
